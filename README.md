@@ -10,4 +10,29 @@ To use this program, you have to come up with a PIN number (0-9) to tell the mac
 
 **It is highly recommended that you use another layer of encryption to prevent any brute force attempts.**
 
+### Examples
+
+```
+Code: "01234567" (7 gets trimmed off because it is not required)
+
+SENDMORE         SSROTOA ("AEOND", the letters in the last column, are leftovers)
+TROOPSTO         TFOUNSE
+SOUTHERN   -->    ELAMEO   -->   SSROTOATFOUNSEELAMEONDPKNOHRDKSR
+FLANKAND           NDPKN
+                    OHRD
+                     KS
+                      R
+```
+
+```
+Code: "53" (Repeats if length is short)
+
+SENDMORE         SRONKTO ("OND", the letters in the last column, are leftovers)
+TROOPSTO         TOUMORN
+SOUTHERN   -->   SLAPSND   -->   SRONKTOTOUMORNSLAPSNDFNDHEEEOATR
+FLANKAND         FNDHEE
+                 E O A
+                   T R
+```
+
 ![Spartan Scytale](https://upload.wikimedia.org/wikipedia/commons/5/51/Skytale.png)
