@@ -21,11 +21,12 @@ function tts () {
   const ta = document.getElementById('ta').value
   var ta1 = ta.replace(' ', '')
   var txt = ta1.split('')
-  for (i = 0; i < res[i].length; i++) {
+  // Sort characters
+  for (i = 0; i < res.length; i++) {
     do {
       const x = txt.pop()
       res[i].push(x)
-    } while ((res[i].length < sl) || (res[i].length !== 0))
+    } while (res[i].length < sl)
   }
   
   function count (number) {
