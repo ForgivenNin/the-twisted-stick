@@ -1,24 +1,24 @@
 function tts () {
   // Remove non-digit characters
-  const wp = document.getElementById('wp').value
-  const clean = /\d/g
+  var wp = document.getElementById('wp').value
+  var clean = /\d/g
   var wp1 = wp.match(clean)
   var wp2 = wp1.split('')
   if (wp2 === (null || '0' || '0')) {
     // Just having 0 or 1 only is as useless as having no PIN at all.
-    document.write('ERROR - NO PIN ENTERED')
+    document.getElementById('p').innerText = 'ERROR - NO PIN ENTERED'
     return
   }
   // Prepare arrays
   var i = 0
-  const sl = (Math.round(Math.sqrt(wp2)) + 1)
+  var sl = ((Math.round(Math.sqrt(wp2)) + 1) * 2)
   // The "+ 1" is for any leftover characters.
   // If there are 16 characters, for example, then there will be four rows/arrays.
   var res = []
   for (i = 0; i < sl; i++) {
     res.push([])
   }
-  const ta = document.getElementById('ta').value
+  var ta = document.getElementById('ta').value
   var ta1 = ta.replace(' ', '')
   var txt = ta1.split('')
   // Sort characters
@@ -33,7 +33,7 @@ function tts () {
   }
   
   // Encryption/Decryption
-  const e = document.getElementById('e').checked
+  var e = document.getElementById('e').checked
   if (e === true) {
     // Wrap
     txt.reverse()
@@ -49,5 +49,5 @@ function tts () {
   if (res[res.length] === 0) {
     res[res.length] = null
   }
-  document.write(res)
+  document.getElementById('p').innerText = res
 }
