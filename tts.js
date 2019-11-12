@@ -29,6 +29,7 @@ function tts () {
         y = res[i].shift()
         console.log(y)
         res[i + sl].unshift(y)
+        res.replace(",", "")
       }
     }
   }
