@@ -31,7 +31,7 @@ function tts () {
         res[i + sl].unshift(y)
       }
     }
-    res.toString()
+    var res1 = res.toString()
   }
 
   // Encryption/Decryption
@@ -47,6 +47,6 @@ function tts () {
   }
 
   // Remove empty arrays & display results.
-  document.getElementById('p').innerText = res
-  console.log(res);
+  document.getElementById('p').innerText = res1
+  console.log(res1);
 }
