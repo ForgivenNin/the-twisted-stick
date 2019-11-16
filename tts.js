@@ -1,52 +1,34 @@
 function tts () {
-  // Remove non-digit characters.
-  var wp = document.getElementById('wp').value
-  var wp2 = wp.split('')
-  // Prepare arrays.
-  var i = 0
-  var res = []
-  var ta = document.getElementById('ta').value
-  var ta1 = ta.replace(/\s/g, '')
-  var txt = ta1.split('')
-  txt.reverse()
-  // Evening out text into a square-like arrangement.
-  var sl = (Math.round(Math.sqrt(txt.length)))
-  // The "* 2" is for the destined set of arrays.
-  for (i = 0; i < (sl * 2); i++) {
-    res.push([])
-  }
-  for (i = 0; i < res.length; i++) {
-    do {
-      var x = txt.pop()
-      res[i].push(x)
-    } while (res[i].length < sl)
-  }
 
-  function count (number) {
-    var y
-    for (var i = 0; i < number; i++) {
-      if ((i < res.length) || (res[i] !== null) || (res[i + sl].length < sl)) {
-        y = res[i].shift()
-        console.log(y)
-        res[i + sl].unshift(y)
+  // Get variables and remove non-digit characters in PIN.
+  var pin = document.getElementById('wp').value
+  var pin2 = pin.replace(/\D/g,'')
+  var pin3 = pin2.split('')
+
+  var txt = document.getElementById('ta').value
+  var txt1 = txt.replace(/\s/g, '')
+  var txt2 = txt1.split('')
+
+  // Cut
+  var a = []
+  do {
+    // Pin loop
+    for (var i = 0; i < pin3.length; i++) {
+      var b = []
+      // Pin # (amount) loop)
+      for (var j = 0; j < pin3[i]; j++) {
+        b += txt2.shift()
       }
+      a.push(b)
     }
-    var res1 = res.toString()
-  }
+  // Leftover loop
+  } while (a.length < txt.length)
+  console.log(a.length)
+  console.log(txt.length)
 
-  // Encryption/Decryption
-  var e = document.getElementById('e').checked
-  if (e === true) {
-    // Wrap
-    wp2.forEach(count)
-  } else {
-    // Unwrap
-    txt.reverse()
-    wp2.reverse()
-    wp2.forEach(count)
-  }
+  // Arrange
 
-  // Remove empty arrays & display results.
-  document.getElementById('p').innerText = res1
-  console.log(res1);
+  // Clean up
+  document.getElementById('p').innerHTML = a
+
 }
