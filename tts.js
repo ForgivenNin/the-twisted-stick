@@ -13,6 +13,9 @@ function tts () {
   do {
     // Pin loop
     for (var i = 0; i < pin3.length; i++) {
+      if (pin3[i] === undefined) {
+        break
+      }
       var b = []
       // Pin # (amount) loop)
       for (var j = 0; j < pin3[i]; j++) {
@@ -21,16 +24,6 @@ function tts () {
       a.push(b)
     }
   // Leftover loop
-  } while (a.length < txt.length)
-
-  // Clean
-  var wipe = ["undefined","undefinedundefined","undefinedundefinedundefined","undefinedundefinedundefinedundefined","undefinedundefinedundefinedundefinedundefined","undefinedundefinedundefinedundefinedundefinedundefined","undefinedundefinedundefinedundefinedundefinedundefinedundefined","undefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined","undefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined"]
-  function restore (x) {
-    for (var k = 0; k < wipe.length, k++;){
-      x.replace(wipe[k],"")
-    }
-  }
-  
-  var res = a.forEach(restore)
-  document.getElementById('p').innerHTML = res
+} while (a.length < txt2.length)
+  document.getElementById('p').innerHTML = a
 }
