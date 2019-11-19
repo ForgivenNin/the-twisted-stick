@@ -1,5 +1,4 @@
 function tts () {
-
   // Get variables and remove non-digit characters in PIN.
   var pin = document.getElementById('wp').value
   var pin2 = pin.replace(/\D/g,'')
@@ -23,12 +22,15 @@ function tts () {
     }
   // Leftover loop
   } while (a.length < txt.length)
-  console.log(a.length)
-  console.log(txt.length)
 
-  // Arrange
-
-  // Clean up
-  document.getElementById('p').innerHTML = a
-
+  // Clean
+  var wipe = ["undefined","undefinedundefined","undefinedundefinedundefined","undefinedundefinedundefinedundefined","undefinedundefinedundefinedundefinedundefined","undefinedundefinedundefinedundefinedundefinedundefined","undefinedundefinedundefinedundefinedundefinedundefinedundefined","undefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined","undefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined"]
+  function restore (x) {
+    for (var k = 0; k < wipe.length, k++;){
+      x.replace(wipe[k],"")
+    }
+  }
+  
+  var res = a.forEach(restore)
+  document.getElementById('p').innerHTML = res
 }
