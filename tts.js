@@ -7,10 +7,11 @@ function tts () {
     return parseInt(x, 10); 
   })
 
-  var txt = document.getElementById('ta').value
-  var txt1 = txt.replace(/\s/g, '')
-  var txt2 = txt1.split('')
-  var txtl = txt2.length
+  var txt0 = document.getElementById('ta').value
+  var txt1 = txt0.replace(/\s/g, '')
+  var txt = txt1.replace(/\W/g, '')
+  var txt2 = txt.split('')
+  var txt3 = txt2.length
 
   // Cut
   var a = []
@@ -25,7 +26,7 @@ function tts () {
       for (var j = 0; j < pin4[i]; j++) {
         b += txt2.shift()
         var e = c.reduce((a, b) => a + b, 0)
-        if (e > txtl) {
+        if (e > txt3) {
           d = false
           break
         }
@@ -53,5 +54,13 @@ function tts () {
     }
   }
   
-  document.getElementById('p').innerHTML = "<br />" + a + "<br /><br />" + g
+  // Dearrange
+  var p = []
+  for (var y = 0; y < a.length; y++) {
+    for (var z = 0; z < a[y].length; z++) {
+      p[z] += g.shift()
+    }
+  }
+  
+  document.getElementById('p').innerHTML = "<br />" + g + "<br /><br />" + p
 }
