@@ -20,13 +20,11 @@ function tts () {
     // Pin loop
     for (var i = 0; i < pin4.length; i++) {
       c.push(pin4[i])
-      console.log(c)
       var b = []
       // Pin # (amount) loop)
       for (var j = 0; j < pin4[i]; j++) {
         b += txt2.shift()
         var e = c.reduce((a, b) => a + b, 0)
-        console.log(e)
         if (e > txtl) {
           d = false
           break
@@ -39,5 +37,21 @@ function tts () {
     }
   // Leftover loop
   } while (d === true)
-  document.getElementById('p').innerHTML = a
+
+  // Arrange
+  var f = []
+  for (var l = 0; l < a.length; l++) {
+    f.push(a[l].split(""))
+  }
+  var g = []
+  // Max array length is 9
+  for (var n = 0; n < 9; n++) {
+    // For each array
+    for (var m = 0; m < f.length; m++) {
+      var h = f[m]
+      g.push(h[n])
+    }
+  }
+  
+  document.getElementById('p').innerHTML = "<br />" + a + "<br /><br />" + g
 }
