@@ -53,14 +53,18 @@ function tts () {
       g.push(h[n])
     }
   }
-  
+
   // Dearrange
   var p = []
-  for (var y = 0; y < a.length; y++) {
-    for (var z = 0; z < a[y].length; z++) {
-      p[z] += g.shift()
+  var q = g.slice(0, g.length)
+  // Loop-push the first element in each array
+  for (var z = 0; z < 9; z++) {
+    for (var y = 0; y < a.length; y++) {
+      console.log(a[y])
+      var r = a[y]
+      p.push(r[z])
     }
   }
-  
+
   document.getElementById('p').innerHTML = "<br />" + g + "<br /><br />" + p
 }
