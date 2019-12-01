@@ -10,8 +10,8 @@ function tts () {
   var txt0 = document.getElementById('ta').value
   var txt1 = txt0.replace(/\s/g, '')
   var txt = txt1.replace(/\W/g, '')
-  var txt2 = txt.split('')
-  var txt3 = txt2.length
+  var txt2 = txt.toUpperCase()
+  var txt3 = txt2.split('')
 
   // Cut
   var a = []
@@ -24,9 +24,9 @@ function tts () {
       var b = []
       // Pin # (amount) loop)
       for (var j = 0; j < pin4[i]; j++) {
-        b += txt2.shift()
+        b += txt3.shift()
         var e = c.reduce((a, b) => a + b, 0)
-        if (e > txt3) {
+        if (e > txt3.length) {
           d = false
           break
         }
