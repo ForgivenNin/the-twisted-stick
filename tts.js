@@ -7,11 +7,16 @@ function tts () {
     return parseInt(x, 10); 
   })
 
+  // Prepare text   
   var txt0 = document.getElementById('ta').value
   var txt1 = txt0.replace(/\s/g, '')
   var txt = txt1.replace(/\W/g, '')
   var txt2 = txt.toUpperCase()
   var txt3 = txt2.split('')
+  // Make placeholder for less predictability
+  var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  txt3.unshift(alphabet[Math.floor(Math.random()*26)])
+  var txt4 = txt3.length
 
   // Cut
   var a = []
@@ -25,8 +30,9 @@ function tts () {
       // Pin # (amount) loop)
       for (var j = 0; j < pin4[i]; j++) {
         b += txt3.shift()
+        // Sum of each looped PIN # in check for length of loop
         var e = c.reduce((a, b) => a + b, 0)
-        if (e > txt3.length) {
+        if (e > txt4) {
           d = false
           break
         }
@@ -42,6 +48,7 @@ function tts () {
   // Arrange
   var f = []
   for (var l = 0; l < a.length; l++) {
+    // Break up chunks
     f.push(a[l].split(""))
   }
   var g = []
@@ -49,22 +56,11 @@ function tts () {
   for (var n = 0; n < 9; n++) {
     // For each array
     for (var m = 0; m < f.length; m++) {
+      // Access & move array items within another array
       var h = f[m]
       g.push(h[n])
     }
   }
 
-  // Dearrange
-  var p = []
-  var q = g.slice(0, g.length)
-  // Loop-push the first element in each array
-  for (var z = 0; z < 9; z++) {
-    for (var y = 0; y < a.length; y++) {
-      console.log(a[y])
-      var r = a[y]
-      p.push(r[z])
-    }
-  }
-
-  document.getElementById('p').innerHTML = "<br />" + g + "<br /><br />" + p
+  document.getElementById('p').innerHTML = "<br />" + g
 }
