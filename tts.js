@@ -66,5 +66,9 @@ function tts () {
   }
   console.log("ARRANGE LENGTH: " + g.length)
 
-  document.getElementById('p').innerHTML = "<br />" + g
+  var g1 = g.toString()
+  var g2 = g1.replace(/\,/g,"")
+
+  document.getElementById('p').innerHTML = "<br />" + g2
+  
 }
