@@ -6,12 +6,14 @@ function tts () {
   var pin4 = pin3.map(function (x) { 
     return parseInt(x, 10); 
   })
+  console.log("PIN: " + pin4)
 
   // Prepare text   
   var txt0 = document.getElementById('ta').value
   var txt1 = txt0.replace(/\s/g, '')
   var txt = txt1.replace(/\W/g, '')
   var txt2 = txt.toUpperCase()
+  console.log("TXT LENGTH: " + txt2.length)
   var txt3 = txt2.split('')
   // Make placeholder for less predictability
   var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -44,6 +46,7 @@ function tts () {
     }
   // Leftover loop
   } while (d === true)
+  console.log("CUT LENGTH: " + a.length)
 
   // Arrange
   var f = []
@@ -61,6 +64,7 @@ function tts () {
       g.push(h[n])
     }
   }
+  console.log("ARRANGE LENGTH: " + g.length)
 
   document.getElementById('p').innerHTML = "<br />" + g
 }
