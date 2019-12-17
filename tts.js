@@ -47,6 +47,12 @@ function tts () {
   // Leftover loop
   } while (d === true)
   console.log("CUT LENGTH: " + a.length)
+  // Add random letters
+  for (var j2 = 0; j2 < a.length; j2++) {
+    do {
+      a[j2].push(alphabet[Math.floor(Math.random()*26)])
+    } while (a[j2].length < 9)
+  }
 
   // Arrange
   var f = []
