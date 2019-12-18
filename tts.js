@@ -28,12 +28,14 @@ function tts () {
     // Pin loop
     for (var i = 0; i < pin4.length; i++) {
       c.push(pin4[i])
+      console.log(c)
       var b = []
       // Pin # (amount) loop)
       for (var j = 0; j < pin4[i]; j++) {
         b += txt3.shift()
         // Sum of each looped PIN # in check for length of loop
         var e = c.reduce((a, b) => a + b, 0)
+        console.log(e)
         if (e > txt4) {
           d = false
           break
@@ -75,7 +77,6 @@ function tts () {
   // Dearrange
   var o = []
   // Push for every nth # (looped until 9)
-  // https://css-tricks.com/snippets/php/insert-element-every-nth-loop/
   for (var q = 0; q < a.length; q++) {
     for (var p = 0; p < txt2.length; p++){
       if (p % (a.length - 10) === q) {
@@ -84,9 +85,22 @@ function tts () {
       }
     }
   }
+  // Uncut
+  var r = []
+  var chunk = 9
+  // Break array into pieces of nine characters
+  for (var s = 0; s < o.length; s += chunk) {
+    r.push([])
+    r[(s / chunk)] += o.slice(s, s + chunk)
+  }
+  /*
+  var t = true
+  do {
+  // Leftover loop
+  } while (t === true)
+  */
 
   var g1 = g.toString()
   var g2 = g1.replace(/\,/g,"")
 
-  document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: " + o
-}
+  document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: " + r
