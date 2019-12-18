@@ -91,21 +91,32 @@ function tts () {
     r.push([])
     r[(s / chunk)] += o.slice(s, s + chunk)
   }
-  
-  var t = true
-  // Loop until PIN reaches end of length
-  do {
-    for (var u = 0; u < pin4.length; u++) {
-      for (var v = 0; v < r.length; v++) {
-        // Loop to remove characters until length equals PIN *digit*
-      }
+
+var pin5 = []
+do {
+	for (var v = 0; v < (pin4.length); v++) {
+    	pin5.push(pin4[v])
     }
-  // Leftover loop
-  } while (t === true)
-  
+} while (pin5.length < r.length)
+
+
+var w = []
+var x = r.length
+for (var u = 0; u < x; u++) {
+	var s = r.shift()
+	// Loop to remove characters until length equals PIN *digit*
+	var t = s.split("")
+	do {
+  		t.pop()
+	} while (t.length > pin5[u])
+    w.push(t)
+}
 
   var g1 = g.toString()
   var g2 = g1.replace(/\,/g,"")
+  
+  var w1 = w.toString()
+  var w2 = w1.replace(/\,/g,"")
 
-  document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: " + r
+  document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: " + w2
 }
