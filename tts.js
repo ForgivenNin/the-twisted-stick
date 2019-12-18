@@ -28,14 +28,12 @@ function tts () {
     // Pin loop
     for (var i = 0; i < pin4.length; i++) {
       c.push(pin4[i])
-      console.log(c)
       var b = []
       // Pin # (amount) loop)
       for (var j = 0; j < pin4[i]; j++) {
         b += txt3.shift()
         // Sum of each looped PIN # in check for length of loop
         var e = c.reduce((a, b) => a + b, 0)
-        console.log(e)
         if (e > txt4) {
           d = false
           break
@@ -93,16 +91,21 @@ function tts () {
     r.push([])
     r[(s / chunk)] += o.slice(s, s + chunk)
   }
-  /*
+  
   var t = true
+  // Loop until PIN reaches end of length
   do {
+    for (var u = 0; u < pin4.length; u++) {
+      for (var v = 0; v < r.length; v++) {
+        // Loop to remove characters until length equals PIN *digit*
+      }
+    }
   // Leftover loop
   } while (t === true)
-  */
+  
 
   var g1 = g.toString()
   var g2 = g1.replace(/\,/g,"")
 
   document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: " + r
 }
-  
