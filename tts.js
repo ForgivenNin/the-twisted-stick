@@ -47,6 +47,12 @@ function tts () {
   // Leftover loop
   } while (d === true)
   console.log("CUT LENGTH: " + a.length)
+  // Add random letters
+  for (var j2 = 0; j2 < a.length; j2++) {
+    do {
+      a[j2] += alphabet[Math.floor(Math.random()*26)]
+    } while (a[j2].length < 9)
+  }
 
   // Arrange
   var f = []
@@ -66,9 +72,51 @@ function tts () {
   }
   console.log("ARRANGE LENGTH: " + g.length)
 
+  // Dearrange
+  var o = []
+  // Push for every nth # (looped until 9)
+  for (var q = 0; q < a.length; q++) {
+    for (var p = 0; p < txt2.length; p++){
+      if (p % (a.length - 10) === q) {
+        // The "-10" is probably gonna be a problem later
+      o += txt2[p]
+      }
+    }
+  }
+  // Uncut
+  var r = []
+  var chunk = 9
+  // Break array into pieces of nine characters
+  for (var s = 0; s < o.length; s += chunk) {
+    r.push([])
+    r[(s / chunk)] += o.slice(s, s + chunk)
+  }
+
+var pin5 = []
+do {
+	for (var v = 0; v < (pin4.length); v++) {
+    	pin5.push(pin4[v])
+    }
+} while (pin5.length < r.length)
+
+
+var w = []
+var x = r.length
+for (var u = 0; u < x; u++) {
+	var s = r.shift()
+	// Loop to remove characters until length equals PIN *digit*
+	var t = s.split("")
+	do {
+  		t.pop()
+	} while (t.length > pin5[u])
+    w.push(t)
+}
+
   var g1 = g.toString()
   var g2 = g1.replace(/\,/g,"")
-
-  document.getElementById('p').innerHTML = "<br />" + g2
   
+  var w1 = w.toString()
+  var w2 = w1.replace(/\,/g,"")
+
+  document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: " + w2
 }

@@ -4,9 +4,8 @@ An adaptation of the *Spartan's Scytale* with a little twist thrown into the mix
 
 ### The Scytale
 
-The Spartan's Scytale is an encoding system that works by writing on a slip of paper wrapped around a staff. By unwinding the writing, the text would appear scrambled! This project takes this one step further by letting the user say where the text gets "wrapped" by adding in a PIN (it is recommended that you do not include any zeroes). For extra protection, this program adds a random letter to your message since the first letter would remain unshifted without it.
+The Spartan's Scytale is an encoding system that works by writing on a slip of paper wrapped around a staff. By unwinding the writing, the text would appear scrambled! In addition, random letters are added for extra protection against decryption methods such as frequency analysis. This project takes this one step further, too, by letting the user say where the text gets "wrapped" by adding in a PIN.
 
-**You should use another layer of encryption to prevent potential brute force attacks!**
 
 ### Examples
 
