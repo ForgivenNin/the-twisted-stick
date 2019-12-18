@@ -18,6 +18,7 @@ function tts () {
   // Make placeholder for less predictability
   var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   txt3.unshift(alphabet[Math.floor(Math.random()*26)])
+  txt3.push(alphabet[Math.floor(Math.random()*26)])
   var txt4 = txt3.length
 
   // Cut
