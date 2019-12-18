@@ -104,3 +104,5 @@ function tts () {
   var g2 = g1.replace(/\,/g,"")
 
   document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: " + r
+}
+  
