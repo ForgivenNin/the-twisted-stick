@@ -18,7 +18,6 @@ function tts () {
   // Make placeholder for less predictability
   var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   txt3.unshift(alphabet[Math.floor(Math.random()*26)])
-  txt3.push(alphabet[Math.floor(Math.random()*26)])
   var txt4 = txt3.length
 
   // Cut
@@ -48,6 +47,7 @@ function tts () {
   // Leftover loop
   } while (d === true)
   console.log("CUT LENGTH: " + a.length)
+  console.log(a)
   // Add random letters
   for (var j2 = 0; j2 < a.length; j2++) {
     do {
@@ -78,7 +78,7 @@ function tts () {
   // Push for every nth # (looped until 9)
   for (var q = 0; q < a.length; q++) {
     for (var p = 0; p < txt2.length; p++){
-      if (p % (a.length - 10) === q) {
+      if (p % 10 === q) {
         // The "-10" is probably gonna be a problem later
       o += txt2[p]
       }
@@ -116,6 +116,7 @@ for (var u = 0; u < x; u++) {
   var g1 = g.toString()
   var g2 = g1.replace(/\,/g,"")
   
+  w.shift()
   var w1 = w.toString()
   var w2 = w1.replace(/\,/g,"")
 
