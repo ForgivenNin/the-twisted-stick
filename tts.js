@@ -72,9 +72,21 @@ function tts () {
   }
   console.log("ARRANGE LENGTH: " + g.length)
 
+  // Dearrange
+  var o = []
+  // Push for every nth # (looped until 9)
+  // https://css-tricks.com/snippets/php/insert-element-every-nth-loop/
+  for (var q = 0; q < a.length; q++) {
+    for (var p = 0; p < txt2.length; p++){
+      if (p % (a.length - 10) === q) {
+        // The "-10" is probably gonna be a problem later
+      o += txt2[p]
+      }
+    }
+  }
+
   var g1 = g.toString()
   var g2 = g1.replace(/\,/g,"")
 
-  document.getElementById('p').innerHTML = "<br />" + g2
-  
+  document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: " + o
 }
