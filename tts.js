@@ -51,7 +51,9 @@ function tts () {
   // Add random letters
   for (var j2 = 0; j2 < a.length; j2++) {
     do {
-      a[j2] += alphabet[Math.floor(Math.random()*26)]
+      a[j2] += "0"
+			// a[j2] += alphabet[Math.floor(Math.random()*26)]
+			// ^ Once decryption is solved
     } while (a[j2].length < 9)
   }
 
@@ -74,12 +76,31 @@ function tts () {
   console.log("ARRANGE LENGTH: " + g.length)
 
   // Dearrange
+	// Function predicts input length then calculates how many times it can be subtracted by the PIN
+  function minnum () {
+  	var avg = arr => arr.reduce( ( p, c ) => p + c, 0 ) / arr.length;
+		// Calculated formula (9 for row length, avg PIN for txt2 factor)
+  	var num = ((txt2.length / 9) * avg(pin4))
+  	var finish = false
+  	var counter = 0
+  	do {
+  		for (var min = 0; min < pin4.length; min++) {
+  			num -= pin4[min]
+  			counter++
+  			if (num <= 0){
+  				counter--
+  				finish = true
+  				break
+  			}
+  		}
+  	} while (finish === false)
+  	return counter
+  }
   var o = []
   // Push for every nth # (looped until 9)
   for (var q = 0; q < a.length; q++) {
     for (var p = 0; p < txt2.length; p++){
-      if (p % 10 === q) {
-        // The "-10" is probably gonna be a problem later
+      if ((p % minnum()) === q) {
       o += txt2[p]
       }
     }
@@ -116,7 +137,6 @@ for (var u = 0; u < x; u++) {
   var g1 = g.toString()
   var g2 = g1.replace(/\,/g,"")
   
-  w.shift()
   var w1 = w.toString()
   var w2 = w1.replace(/\,/g,"")
 
