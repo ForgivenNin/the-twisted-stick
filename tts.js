@@ -1,18 +1,10 @@
 function tts () {
-  // Get variables and remove non-digit characters in PIN.
-  var pin = document.getElementById('wp').value
-  var pin2 = pin.replace(/\D/g,'')
-  var pin3 = pin2.split('')
-  var pin4 = pin3.map(function (x) { 
-    return parseInt(x, 10); 
-  })
-  console.log("PIN: " + pin4)
 
-  // Prepare text   
+  // Prepare text
   var txt0 = document.getElementById('ta').value
   var txt1 = txt0.replace(/\s/g, '')
-  var txt = txt1.replace(/\W/g, '')
-  var txt2 = txt.toUpperCase()
+  var txt = txt1.toUpperCase()
+  var txt2 = txt.replace(/\W/g, '')
   console.log("TXT LENGTH: " + txt2.length)
   var txt3 = txt2.split('')
   // Make placeholder for less predictability
@@ -20,125 +12,63 @@ function tts () {
   txt3.unshift(alphabet[Math.floor(Math.random()*26)])
   var txt4 = txt3.length
 
-  // Cut
-  var a = []
-  var c = []
-  var d = true
-  do {
-    // Pin loop
-    for (var i = 0; i < pin4.length; i++) {
-      c.push(pin4[i])
-      var b = []
-      // Pin # (amount) loop)
-      for (var j = 0; j < pin4[i]; j++) {
-        b += txt3.shift()
-        // Sum of each looped PIN # in check for length of loop
-        var e = c.reduce((a, b) => a + b, 0)
-        if (e > txt4) {
-          d = false
-          break
-        }
-      }
-      if (d === false) {
-          break
-      }
-      a.push(b)
-    }
-  // Leftover loop
-  } while (d === true)
-  console.log("CUT LENGTH: " + a.length)
-  console.log(a)
-  // Add random letters
-  for (var j2 = 0; j2 < a.length; j2++) {
-    do {
-      a[j2] += "0"
-			// a[j2] += alphabet[Math.floor(Math.random()*26)]
-			// ^ Once decryption is solved
-    } while (a[j2].length < 9)
-  }
+  // Get variables and remove non-digit characters in PIN.
+  var pin = document.getElementById('wp').value
+  var pin2 = pin.replace(/\D/g,'')
+  var pin3 = pin2.split('')
+  var pin4 = pin3.map(function (x) {
+    return parseInt(x, 10);
+  })
+  var pin5 = Math.max.apply(null, pin4)
+  console.log("MAX DIGIT " + pin5)
 
+  // PIN counter
+  var a = 0
+  var e = []
+  while (a < txt4) {
+    for (var b = 0; b < pin4.length; b++) {
+      var d = []
+      a += pin4[b]
+      // Split into PIN chunks
+      for (var c = 0; c < pin[b]; c++) {
+        d += txt3.shift()
+      }
+      e.push(d)
+    }
+  }
+  // Get rid of excess
+  var e1 = e.map(function (x) {
+    return x.replace(/\undefined/g, '')
+  })
+  var e2 = e1.filter(function (x) {
+    return x !== ""
+  })
+  // Fill w/ 0s
+  for (var l = 0; l < e2.length; l++) {
+    while (e2[l].length < pin5) {
+      e2[l] += "0"
+    }
+  }
   // Arrange
   var f = []
-  for (var l = 0; l < a.length; l++) {
+  for (var k = 0; k < e2.length; k++) {
     // Break up chunks
-    f.push(a[l].split(""))
+    f.push(e2[k].split(""))
   }
   var g = []
   // Max array length is 9
-  for (var n = 0; n < 9; n++) {
+  for (var i = 0; i < 9; i++) {
     // For each array
-    for (var m = 0; m < f.length; m++) {
+    for (var j = 0; j < f.length; j++) {
       // Access & move array items within another array
-      var h = f[m]
-      g.push(h[n])
+      var h = f[j]
+      g.push(h[i])
     }
   }
-  console.log("ARRANGE LENGTH: " + g.length)
-
-  // Dearrange
-	// Function predicts input length then calculates how many times it can be subtracted by the PIN
-  function minnum () {
-  	var avg = arr => arr.reduce( ( p, c ) => p + c, 0 ) / arr.length;
-		// Calculated formula (9 for row length, avg PIN for txt2 factor)
-  	var num = ((txt2.length / 9) * avg(pin4))
-  	var finish = false
-  	var counter = 0
-  	do {
-  		for (var min = 0; min < pin4.length; min++) {
-  			num -= pin4[min]
-  			counter++
-  			if (num <= 0){
-  				counter--
-  				finish = true
-  				break
-  			}
-  		}
-  	} while (finish === false)
-  	return counter
-  }
-  var o = []
-  // Push for every nth # (looped until 9)
-  for (var q = 0; q < a.length; q++) {
-    for (var p = 0; p < txt2.length; p++){
-      if ((p % minnum()) === q) {
-      o += txt2[p]
-      }
-    }
-  }
-  // Uncut
-  var r = []
-  var chunk = 9
-  // Break array into pieces of nine characters
-  for (var s = 0; s < o.length; s += chunk) {
-    r.push([])
-    r[(s / chunk)] += o.slice(s, s + chunk)
-  }
-
-var pin5 = []
-do {
-	for (var v = 0; v < (pin4.length); v++) {
-    	pin5.push(pin4[v])
-    }
-} while (pin5.length < r.length)
-
-
-var w = []
-var x = r.length
-for (var u = 0; u < x; u++) {
-	var s = r.shift()
-	// Loop to remove characters until length equals PIN *digit*
-	var t = s.split("")
-	do {
-  		t.pop()
-	} while (t.length > pin5[u])
-    w.push(t)
-}
-
   var g1 = g.toString()
   var g2 = g1.replace(/\,/g,"")
-  
-  var w1 = w.toString()
-  var w2 = w1.replace(/\,/g,"")
+  console.log("ARRANGE LENGTH: " + g2.length)
 
-  document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: " + w2
+  document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: "
+
 }
