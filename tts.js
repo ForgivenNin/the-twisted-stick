@@ -4,12 +4,13 @@ function tts () {
   var txt0 = document.getElementById('ta').value
   var txt1 = txt0.replace(/\s/g, '')
   var txt = txt1.toUpperCase()
-  var txt2 = txt.replace(/\W/g, '')
+  var txt22 = txt.replace(/\W/g, '')
+  var txt23 = txt22.slice(0, txt22.length)
+  var txt33 = txt23.split('')
+  var txt2 = txt22.replace(/\d/g, '')
   console.log("TXT LENGTH: " + txt2.length)
   var txt3 = txt2.split('')
-  // Make placeholder for less predictability
-  var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  txt3.unshift(alphabet[Math.floor(Math.random()*26)])
+  //var txt33 = txt3.slice(0, txt3.length)
   var txt4 = txt3.length
 
   // Get variables and remove non-digit characters in PIN.
@@ -38,11 +39,12 @@ function tts () {
   }
   // Get rid of excess
   var e1 = e.map(function (x) {
-    return x.replace(/\undefined/g, '')
+    return x.replace(/undefined/g, '')
   })
   var e2 = e1.filter(function (x) {
     return x !== ""
   })
+  var e3 = e2.slice(0, e2.length)
   // Fill w/ 0s
   for (var l = 0; l < e2.length; l++) {
     while (e2[l].length < pin5) {
@@ -66,9 +68,25 @@ function tts () {
     }
   }
   var g1 = g.toString()
-  var g2 = g1.replace(/\,/g,"")
+  var g2 = g1.replace(/,/g,"")
   console.log("ARRANGE LENGTH: " + g2.length)
 
-  document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: "
+  // Dearrange
+  var n = []
+  n.length = e3.length
+  console.log(e3)
+  while (txt33.length !== 0) {
+    for (var m = 0; m < e3.length; m++){
+      var o = txt33.shift()
+      console.log(o)
+      n[m] += o
+    }
+  }
+  var n1 = n.toString()
+  var n2 = n1.replace(/,/g, "")
+  var n3 = n2.replace(/0/g, "")
+  var n4 = n3.replace(/undefined/g, "")
+
+  document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: " + n4
 
 }
