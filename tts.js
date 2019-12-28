@@ -4,13 +4,11 @@ function tts () {
   var txt0 = document.getElementById('ta').value
   var txt1 = txt0.replace(/\s/g, '')
   var txt = txt1.toUpperCase()
-  var txt22 = txt.replace(/\W/g, '')
-  var txt23 = txt22.slice(0, txt22.length)
+  var txt23 = txt.slice(0, txt.length)
   var txt33 = txt23.split('')
-  var txt2 = txt22.replace(/\d/g, '')
+  var txt2 = txt.replace(/~/g, '')
   console.log("TXT LENGTH: " + txt2.length)
   var txt3 = txt2.split('')
-  //var txt33 = txt3.slice(0, txt3.length)
   var txt4 = txt3.length
 
   // Get variables and remove non-digit characters in PIN.
@@ -48,7 +46,7 @@ function tts () {
   // Fill w/ 0s
   for (var l = 0; l < e2.length; l++) {
     while (e2[l].length < pin5) {
-      e2[l] += "0"
+      e2[l] += "~"
     }
   }
   // Arrange
@@ -84,7 +82,7 @@ function tts () {
   }
   var n1 = n.toString()
   var n2 = n1.replace(/,/g, "")
-  var n3 = n2.replace(/0/g, "")
+  var n3 = n2.replace(/~/g, "")
   var n4 = n3.replace(/undefined/g, "")
 
   document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: " + n4
