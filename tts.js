@@ -14,10 +14,8 @@ function tts () {
   // Get variables and remove non-digit characters in PIN.
   var pin = document.getElementById('wp').value
   var pin2 = pin.replace(/\D/g,'')
-  if (/0/g) {
-    return document.getElementById('p').innerHTML = "ERROR - Cannot have '0' in PIN."
-  }
-  var pin3 = pin2.split('')
+  var pin22 = pin2.replace(/0/g, '')
+  var pin3 = pin22.split('')
   var pin4 = pin3.map(function (x) {
     return parseInt(x, 10);
   })
