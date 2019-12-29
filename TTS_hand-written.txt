@@ -1,0 +1,92 @@
+-------------------------------
+
+The Twisted Stick: Hand-Written
+
+
+It is possible to reenact the encryption process of The Twisted Stick by hand! 
+Of course, there is, first, always the option of doing the regular Spartan Scytale by wrapping paper around a staff.
+However, if you need to encorporate a PIN, this is how it's done.
+
+-------------------------------
+
+
+You will start off by having the message you want to encrypt written out on a sheet of paper.
+For this example, "hello world" will be used.
+
+hello world
+
+
+
+
+Next, come up with the PIN you want to use based on how long your message is.
+For this example, "42" will be used.
+
+hello world     42
+
+
+
+
+Now, based on the key you have chosen, remove all spaces, and divide up your message.
+
+hell,ow,orld    42
+
+
+
+
+Stack the sections under one another.
+
+hell            42
+ow
+orld
+
+
+
+
+If you notice, there is some space between the words when you read the text from top to bottom, left to right.
+This is where you will fill in the spaces with a character not used in the message (which has been the comma (",")).
+
+hell            42
+ow,,
+orld
+
+
+
+
+Write out the letters going from top to bottom, including the filler characters, and you'll have your encrypted message!
+
+hooewrl,ll,d
+
+
+
+
+To decrypt your message, you will have to take a slightly different approach, since the reciever won't know what the message actually is.
+In this process, write out the message, including the filler characters, based on the PIN.
+
+hooe
+wrl,
+ll,d
+
+
+
+
+Count how many rows show up. Number your text in order of them.
+
+hooewrl,ll,d
+123123123123
+
+
+
+
+Stack them as you have done before, one over the other.
+You'll start to see your message forming back together.
+
+hell
+ow,,
+orld
+
+
+
+
+Place the rows side to side and remove all of the filler characters to get your result!
+
+helloworld
