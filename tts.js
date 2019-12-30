@@ -1,5 +1,4 @@
 function tts () {
-
   // Prepare text
   var txt0 = document.getElementById('ta').value
   var txt1 = txt0.replace(/\s/g, '')
@@ -7,19 +6,19 @@ function tts () {
   var txt23 = txt.slice(0, txt.length)
   var txt33 = txt23.split('')
   var txt2 = txt.replace(/~/g, '')
-  console.log("TXT LENGTH: " + txt2.length)
+  console.log('TXT LENGTH: ' + txt2.length)
   var txt3 = txt2.split('')
   var txt4 = txt3.length
 
   // Get variables and remove non-digit characters in PIN.
   var pin = document.getElementById('wp').value
-  var pin2 = pin.replace(/\D/g,'')
+  var pin2 = pin.replace(/\D/g, '')
   var pin3 = pin2.split('')
   var pin4 = pin3.map(function (x) {
-    return parseInt(x, 10);
+    return parseInt(x, 10)
   })
   var pin5 = Math.max.apply(null, pin4)
-  console.log("MAX DIGIT " + pin5)
+  console.log('MAX DIGIT ' + pin5)
 
   // PIN counter
   var a = 0
@@ -40,20 +39,20 @@ function tts () {
     return x.replace(/undefined/g, '')
   })
   var e2 = e1.filter(function (x) {
-    return x !== ""
+    return x !== ''
   })
   var e3 = e2.slice(0, e2.length)
   // Fill w/ 0s
   for (var l = 0; l < e2.length; l++) {
     while (e2[l].length < pin5) {
-      e2[l] += "~"
+      e2[l] += '~'
     }
   }
   // Arrange
   var f = []
   for (var k = 0; k < e2.length; k++) {
     // Break up chunks
-    f.push(e2[k].split(""))
+    f.push(e2[k].split(''))
   }
   var g = []
   // Max array length is 9
@@ -66,26 +65,24 @@ function tts () {
     }
   }
   var g1 = g.toString()
-  var g2 = g1.replace(/,/g,"")
-  console.log("ARRANGE LENGTH: " + g2.length)
+  var g2 = g1.replace(/,/g, '')
+  console.log('ARRANGE LENGTH: ' + g2.length)
 
   // Dearrange
   var n = []
   n.length = e3.length
   console.log(e3)
   while (txt33.length !== 0) {
-    for (var m = 0; m < e3.length; m++){
+    for (var m = 0; m < e3.length; m++) {
       var o = txt33.shift()
       console.log(o)
       n[m] += o
     }
   }
   var n1 = n.toString()
-  var n2 = n1.replace(/,/g, "")
-  var n3 = n2.replace(/~/g, "")
-  var n4 = n3.replace(/undefined/g, "")
+  var n2 = n1.replace(/,/g, '')
+  var n3 = n2.replace(/~/g, '')
+  var n4 = n3.replace(/undefined/g, '')
 
-  document.getElementById('p').innerHTML = "<br />" + "ENCRYPT: " + g2 + "<br /><br />" + "DECRYPT: " + n4
-
+  document.getElementById('p').innerHTML = '<br />' + 'ENCRYPT: ' + g2 + '<br /><br />' + 'DECRYPT: ' + n4
 }
-
