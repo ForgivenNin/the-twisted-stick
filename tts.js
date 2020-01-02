@@ -1,4 +1,4 @@
-function tts () {
+function tts (mode) {
   // Prepare text
   var txt0 = document.getElementById('ta').value
   var txt1 = txt0.replace(/\s/g, '')
@@ -84,5 +84,9 @@ function tts () {
   var n3 = n2.replace(/~/g, '')
   var n4 = n3.replace(/undefined/g, '')
 
-  document.getElementById('p').innerHTML = '<br />' + 'ENCRYPT: ' + g2 + '<br /><br />' + 'DECRYPT: ' + n4
+  if (mode === "enc") {
+    document.getElementById('p').innerHTML = g2
+  } else if (mode === "dec") {
+    document.getElementById('p').innerHTML = n4
+  }
 }
