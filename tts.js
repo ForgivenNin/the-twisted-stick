@@ -1,12 +1,10 @@
 function tts (mode) {
   // Prepare text
   var txt0 = document.getElementById('ta').value
-  var txt1 = txt0.replace(/\s/g, '`')
-  var txt = txt1.toUpperCase()
+  var txt = txt0.toUpperCase()
   var txt23 = txt.slice(0, txt.length)
   var txt33 = txt23.split('')
   var txt2 = txt.replace(/~/g, '')
-  console.log('TXT LENGTH: ' + txt2.length)
   var txt3 = txt2.split('')
   var txt4 = txt3.length
 
@@ -18,7 +16,6 @@ function tts (mode) {
     return parseInt(x, 10)
   })
   var pin5 = Math.max.apply(null, pin4)
-  console.log('MAX DIGIT ' + pin5)
 
   // PIN counter
   var a = 0
@@ -66,24 +63,20 @@ function tts (mode) {
   }
   var g1 = g.toString()
   var g2 = g1.replace(/,/g, '')
-  console.log('ARRANGE LENGTH: ' + g2.length)
 
   // Dearrange
   var n = []
   n.length = e3.length
-  console.log(e3)
   while (txt33.length !== 0) {
     for (var m = 0; m < e3.length; m++) {
       var o = txt33.shift()
-      console.log(o)
       n[m] += o
     }
   }
   var n1 = n.toString()
   var n2 = n1.replace(/,/g, '')
   var n3 = n2.replace(/~/g, '')
-  var n33 = n3.replace(/`/g, ' ')
-  var n4 = n33.replace(/undefined/g, '')
+  var n4 = n3.replace(/undefined/g, '')
 
   if (mode === "enc") {
     document.getElementById('p').innerHTML = g2
