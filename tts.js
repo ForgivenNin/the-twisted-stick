@@ -1,7 +1,9 @@
 function tts (mode) {
   // Prepare text
   var txt0 = document.getElementById('ta').value
-  var txt = txt0.toUpperCase()
+  var txt1 = txt0.replace(/\s/g, '`')
+  // ^ This replace method is necessary for long texts
+  var txt = txt1.toUpperCase()
   var txt23 = txt.slice(0, txt.length)
   var txt33 = txt23.split('')
   var txt2 = txt.replace(/~/g, '')
@@ -77,10 +79,11 @@ function tts (mode) {
   var n2 = n1.replace(/,/g, '')
   var n3 = n2.replace(/~/g, '')
   var n4 = n3.replace(/undefined/g, '')
+  var n5 = n4.replace(/`/g, ' ')
 
   if (mode === "enc") {
     document.getElementById('p').innerHTML = g2
   } else if (mode === "dec") {
-    document.getElementById('p').innerHTML = n4
+    document.getElementById('p').innerHTML = n5
   }
 }
