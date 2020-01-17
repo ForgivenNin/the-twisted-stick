@@ -26,9 +26,9 @@ hello world     42
 
 
 
-Now, based on the key you have chosen, remove all spaces, and divide up your message.
+Now, based on the key you have chosen, replace all spaces with a character, and divide up your message with a second character.
 
-hell,ow,orld    42
+hell,o~,worl,d    42
 
 
 
@@ -36,8 +36,9 @@ hell,ow,orld    42
 Stack the sections under one another.
 
 hell            42
-ow
-orld
+o~
+worl
+d
 
 
 
@@ -46,15 +47,16 @@ If you notice, there is some space between the words when you read the text from
 This is where you will fill in the spaces with a character not used in the message (which has been the comma (",")).
 
 hell            42
-ow,,
-orld
+o~,,
+worl
+d,,,
 
 
 
 
 Write out the letters going from top to bottom, including the filler characters, and you'll have your encrypted message!
 
-hooewrl,ll,d
+howde~o,l,r,l,l,
 
 
 
@@ -62,17 +64,18 @@ hooewrl,ll,d
 To decrypt your message, you will have to take a slightly different approach, since the reciever won't know what the message actually is.
 In this process, write out the message, including the filler characters, based on the PIN.
 
-hooe
-wrl,
-ll,d
+howd
+e~o,
+l,r,
+l,l,
 
 
 
 
 Count how many rows show up. Number your text in order of them.
 
-hooewrl,ll,d
-123123123123
+howde~o,l,r,l,l,
+1234123412341234
 
 
 
@@ -81,12 +84,13 @@ Stack them as you have done before, one over the other.
 You'll start to see your message forming back together.
 
 hell
-ow,,
-orld
+o~,,
+worl
+d,,,
 
 
 
 
 Place the rows side to side and remove all of the filler characters to get your result!
 
-helloworld
+hello world
