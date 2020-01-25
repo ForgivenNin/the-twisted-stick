@@ -1,13 +1,19 @@
 function tts (mode) {
   // Prepare text
   var txt0 = document.getElementById('ta').value
-  var txt1 = txt0.replace(/\s/g, '`')
+  var txt1 = txt0.replace(/\s/g, '` ')
   // ^ This replace method is necessary for long texts
   var txt = txt1.toUpperCase()
   var txt23 = txt.slice(0, txt.length)
-  var txt33 = txt23.split('')
-  var txt2 = txt.replace(/~/g, '')
-  var txt3 = txt2.split('')
+  if (document.getElementById('wm').checked === true) {
+    var txt33 = txt23.split(' ')
+    var txt2 = txt.replace(/~/g, '')
+    var txt3 = txt2.split(' ')
+  } else if (document.getElementById('wm').checked === false) {
+    var txt33 = txt23.split('')
+    var txt2 = txt.replace(/~/g, '')
+    var txt3 = txt2.split('')
+  }
   var txt4 = txt3.length
 
   // Get variables and remove non-digit characters in PIN.
@@ -41,7 +47,7 @@ function tts (mode) {
     return x !== ''
   })
   var e3 = e2.slice(0, e2.length)
-  // Fill w/ 0s
+  // Fill
   for (var l = 0; l < e2.length; l++) {
     while (e2[l].length < pin5) {
       e2[l] += '~'
@@ -51,7 +57,12 @@ function tts (mode) {
   var f = []
   for (var k = 0; k < e2.length; k++) {
     // Break up chunks
-    f.push(e2[k].split(''))
+    if (document.getElementById('wm').checked === true) {
+      f.push(e2[k].split('`'))
+    }
+    if (document.getElementById('wm').checked === false) {
+      f.push(e2[k].split(''))
+    };
   }
   var g = []
   // Max array length is 9
@@ -64,7 +75,11 @@ function tts (mode) {
     }
   }
   var g1 = g.toString()
-  var g2 = g1.replace(/,/g, '')
+  if (document.getElementById('wm').checked === true) {
+    var g2 = g1.replace(/,+/g, ',')
+  } else if (document.getElementById('wm').checked === false) {
+    var g2 = g1.replace(/,/g, '')
+  }
 
   // Dearrange
   var n = []
