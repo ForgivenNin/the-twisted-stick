@@ -76,7 +76,8 @@ function tts (mode) {
   }
   var g1 = g.toString()
   if (document.getElementById('wm').checked === true) {
-    var g2 = g1.replace(/,+/g, ',')
+    var g22 = g1.replace(/,+/g, ',')
+    var g2 = g22.replace(/,/g, ' ')
   } else if (document.getElementById('wm').checked === false) {
     var g2 = g1.replace(/,/g, '')
   }
