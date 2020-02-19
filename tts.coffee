@@ -4,10 +4,13 @@ tts = (mode) ->
   # Prepare text
   txt = document.getElementById('ta').value
   # This replace method is necessary for long texts
-  txt = txt.replace(/\s/g, '`').replace(/~/g, '`')
+  txt = txt.replace(/\s/g, '`')
   txt = txt.toUpperCase()
-  txt = txt.split('')
   txt2 = txt.slice(0, txt.length)
+  txt3 = txt2.split('')
+  txt4 = txt.replace(/~/g, '`')
+  txt5 = txt.split('')
+  txt6 = txt5.length
 
 
   # Get variables and remove non-digit characters in PIN.
@@ -21,7 +24,7 @@ tts = (mode) ->
   # PIN counter
   a = 0
   e = []
-  while a < txt.length
+  while a < txt6
     for b in [0...pin2.length]
       d = []
       a += pin2[b]
@@ -37,10 +40,10 @@ tts = (mode) ->
   e2 = e.slice(0, e.length)
 
 
-  # Fill w/ 0s
+  # Fill
   for j in [0...e.length]
     while e[j].length < pin3
-      e2[l] += '~'
+      e[j] += '~'
 
 
   # Arrange
@@ -61,9 +64,9 @@ tts = (mode) ->
   # Dearrange
   n = []
   n.length = e2.length
-  while txt2.length isnt 0
+  while txt3.length isnt 0
     for o in [0...e2.length]
-      p = txt2.shift()
+      p = txt3.shift()
       n[o] += p
   n = n.toString()
   n = n.replace(/`/g, '').replace(/~/g, '').replace(/undefined/g, '').replace(/,/g, '')
