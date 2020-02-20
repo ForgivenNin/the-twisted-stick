@@ -1,2 +1,2 @@
 dev/* linguist-vendored
-scripts/* linguist-vendored=false
+*.min.js linguist-vendored=false
