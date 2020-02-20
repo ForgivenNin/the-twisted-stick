@@ -2,14 +2,14 @@ tts = (mode) ->
 
 
   # Prepare text
-  txt = document.getElementById('ta').value
+  txt = document.getElementById('ta').value;
   # This replace method is necessary for long texts
   txt = txt.replace(/\s/g, '`')
-  txt = txt.toUpperCase()
-  txt2 = txt.slice(0, txt.length)
-  txt3 = txt2.split('')
-  txt4 = txt.replace(/~/g, '`')
-  txt5 = txt.split('')
+  txt = txt.toUpperCase();
+  txt2 = txt.slice(0, txt.length);
+  txt3 = txt2.split('');
+  txt4 = txt.replace(/~/g, '');
+  txt5 = txt4.split('')
   txt6 = txt5.length
 
 
@@ -30,26 +30,25 @@ tts = (mode) ->
       a += pin2[b]
       # Split into PIN chunks
       for c in [0...pinO[b]]
-        d += txt.shift()
+        d += txt5.shift()
       e.push(d)
 
-
   # Get rid of excess
-  e = e.map (x) -> x.replace(/undefined/g, '')
-  e = e.filter (x) -> x isnt ''
-  e2 = e.slice(0, e.length)
+  e1 = e.map (x) -> x.replace(/undefined/g, '')
+  e2 = e1.filter (x) -> x isnt ''
+  e3 = e2.slice(0, e.length)
 
 
   # Fill
-  for j in [0...e.length]
-    while e[j].length < pin3
-      e[j] += '~'
+  for j in [0...e2.length]
+    while e2[j].length < pin3
+      e2[j] += '~'
 
 
   # Arrange
   f = []
-  for k in [0...e.length]
-    f.push(e[k].split(''))
+  for k in [0...e2.length]
+    f.push(e2[k].split(''))
   g = []
   # Max array length is 9
   for l in [0...9]
@@ -63,13 +62,13 @@ tts = (mode) ->
 
   # Dearrange
   n = []
-  n.length = e2.length
+  n.length = e3.length
   while txt3.length isnt 0
-    for o in [0...e2.length]
+    for o in [0...e3.length]
       p = txt3.shift()
       n[o] += p
   n = n.toString()
-  n = n.replace(/`/g, '').replace(/~/g, '').replace(/undefined/g, '').replace(/,/g, '')
+  n = n.replace(/`/g, ' ').replace(/~/g, '').replace(/undefined/g, '').replace(/,/g, '')
 
 
   if mode is "enc"

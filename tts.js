@@ -1,89 +1,82 @@
-function tts (mode) {
+var tts;
+
+tts = function(mode) {
+  var a, b, c, d, e, e1, e2, e3, f, g, h, i, j, k, l, m, n, o, p, pin, pin2, pin3, pinO, q, r, ref, ref1, ref2, ref3, ref4, ref5, s, t, txt, txt2, txt3, txt4, txt5, txt6, u, v;
   // Prepare text
-  var txt0 = document.getElementById('ta').value
-  var txt1 = txt0.replace(/\s/g, '`')
-  // ^ This replace method is necessary for long texts
-  var txt = txt1.toUpperCase()
-  var txt23 = txt.slice(0, txt.length)
-  var txt33 = txt23.split('')
-  var txt2 = txt.replace(/~/g, '')
-  var txt3 = txt2.split('')
-  var txt4 = txt3.length
-
+  txt = document.getElementById('ta').value;
+  txt = txt.replace(/\s/g, '`');
+  txt = txt.toUpperCase();
+  txt2 = txt.slice(0, txt.length);
+  txt3 = txt2.split('');
+  txt4 = txt.replace(/~/g, '');
+  txt5 = txt4.split('');
+  txt6 = txt5.length;
   // Get variables and remove non-digit characters in PIN.
-  var pin = document.getElementById('wp').value
-  var pin2 = pin.replace(/\D/g, '')
-  var pin3 = pin2.split('')
-  var pin4 = pin3.map(function (x) {
-    return parseInt(x, 10)
-  })
-  var pin5 = Math.max.apply(null, pin4)
-
+  pinO = document.getElementById('wp').value;
+  pin = pinO.replace(/\D/g, '');
+  pin = pin.split('');
+  pin2 = pin.map(function(x) {
+    return parseInt(x, 10);
+  });
+  pin3 = Math.max.apply(null, pin2);
   // PIN counter
-  var a = 0
-  var e = []
-  while (a < txt4) {
-    for (var b = 0; b < pin4.length; b++) {
-      var d = []
-      a += pin4[b]
-      // Split into PIN chunks
-      for (var c = 0; c < pin[b]; c++) {
-        d += txt3.shift()
+  a = 0;
+  e = [];
+  while (a < txt6) {
+    for (b = i = 0, ref = pin2.length; (0 <= ref ? i < ref : i > ref); b = 0 <= ref ? ++i : --i) {
+      d = [];
+      a += pin2[b];
+// Split into PIN chunks
+      for (c = q = 0, ref1 = pinO[b]; (0 <= ref1 ? q < ref1 : q > ref1); c = 0 <= ref1 ? ++q : --q) {
+        d += txt5.shift();
       }
-      e.push(d)
+      e.push(d);
     }
   }
   // Get rid of excess
-  var e1 = e.map(function (x) {
-    return x.replace(/undefined/g, '')
-  })
-  var e2 = e1.filter(function (x) {
-    return x !== ''
-  })
-  var e3 = e2.slice(0, e2.length)
-  // Fill w/ 0s
-  for (var l = 0; l < e2.length; l++) {
-    while (e2[l].length < pin5) {
-      e2[l] += '~'
+  e1 = e.map(function(x) {
+    return x.replace(/undefined/g, '');
+  });
+  e2 = e1.filter(function(x) {
+    return x !== '';
+  });
+  e3 = e2.slice(0, e.length);
+// Fill
+  for (j = r = 0, ref2 = e2.length; (0 <= ref2 ? r < ref2 : r > ref2); j = 0 <= ref2 ? ++r : --r) {
+    while (e2[j].length < pin3) {
+      e2[j] += '~';
     }
   }
   // Arrange
-  var f = []
-  for (var k = 0; k < e2.length; k++) {
-    // Break up chunks
-    f.push(e2[k].split(''))
+  f = [];
+  for (k = s = 0, ref3 = e2.length; (0 <= ref3 ? s < ref3 : s > ref3); k = 0 <= ref3 ? ++s : --s) {
+    f.push(e2[k].split(''));
   }
-  var g = []
-  // Max array length is 9
-  for (var i = 0; i < 9; i++) {
-    // For each array
-    for (var j = 0; j < f.length; j++) {
+  g = [];
+// Max array length is 9
+  for (l = t = 0; t < 9; l = ++t) {
+    for (m = u = 0, ref4 = f.length; (0 <= ref4 ? u < ref4 : u > ref4); m = 0 <= ref4 ? ++u : --u) {
       // Access & move array items within another array
-      var h = f[j]
-      g.push(h[i])
+      h = f[m];
+      g.push(h[l]);
     }
   }
-  var g1 = g.toString()
-  var g2 = g1.replace(/,/g, '')
-
+  g = g.toString();
+  g = g.replace(/,/g, '');
   // Dearrange
-  var n = []
-  n.length = e3.length
-  while (txt33.length !== 0) {
-    for (var m = 0; m < e3.length; m++) {
-      var o = txt33.shift()
-      n[m] += o
+  n = [];
+  n.length = e3.length;
+  while (txt3.length !== 0) {
+    for (o = v = 0, ref5 = e3.length; (0 <= ref5 ? v < ref5 : v > ref5); o = 0 <= ref5 ? ++v : --v) {
+      p = txt3.shift();
+      n[o] += p;
     }
   }
-  var n1 = n.toString()
-  var n2 = n1.replace(/,/g, '')
-  var n3 = n2.replace(/~/g, '')
-  var n4 = n3.replace(/undefined/g, '')
-  var n5 = n4.replace(/`/g, ' ')
-
+  n = n.toString();
+  n = n.replace(/`/g, ' ').replace(/~/g, '').replace(/undefined/g, '').replace(/,/g, '');
   if (mode === "enc") {
-    document.getElementById('p').innerHTML = g2
+    return document.getElementById('p').innerHTML = g;
   } else if (mode === "dec") {
-    document.getElementById('p').innerHTML = n5
+    return document.getElementById('p').innerHTML = n;
   }
-}
+};
