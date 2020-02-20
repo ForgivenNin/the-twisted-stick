@@ -1,2 +1,2 @@
 dev/* linguist-vendored
-scripts/* linguist-detectable
+scripts/tts.min.js linguist-detectable
