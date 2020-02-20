@@ -1,2 +1,2 @@
 dev/* linguist-vendored
-tts.min.js linguist-vendored=false
+scripts/* linguist-detectable
