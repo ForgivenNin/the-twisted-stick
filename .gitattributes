@@ -1,3 +1,2 @@
 dev/* linguist-vendored
-*.min.js linguist-vendored=false
-*.min.js linguist-language=JavaScript
+tts.min.js linguist-vendored=false
