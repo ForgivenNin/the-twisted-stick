@@ -1,3 +1,3 @@
 dev/* linguist-vendored
 scripts/* linguist-detectable
-scripts/* linguist-language=JavaScript
+scripts/tts.min.js linguist-language=JavaScript
