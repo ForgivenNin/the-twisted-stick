@@ -8,6 +8,4 @@ The Spartan's Scytale is an ancient encoding system that works by writing on a s
 
 So, how is this beneficial in comparison to other encryption programs? The problem with them is that when the output arrives, it can be excessively long. This is when transposition really can shine in encryption. With more words added to your message, it will be even more difficult for someone to decode the message not knowing the PIN you entered.
 
-If you would like to join in on the development of this project, see [`CONTIBUTING.md`](https://github.com/ForgivenNin/the-twisted-stick/blob/master/CONTRIBUTING.md)
-
 ![Spartan Scytale](https://upload.wikimedia.org/wikipedia/commons/5/51/Skytale.png)
