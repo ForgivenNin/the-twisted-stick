@@ -1,8 +1,7 @@
-tts = (mode) ->
+tts = (mode, txt, pin0) ->
 
 
   # Prepare text
-  txt = document.getElementById('ta').value;
   # This replace method is necessary for long texts
   txt = txt.replace(/\s/g, '`')
   txt = txt.toUpperCase();
@@ -14,7 +13,6 @@ tts = (mode) ->
 
 
   # Get variables and remove non-digit characters in PIN.
-  pinO = document.getElementById('wp').value
   pin = pinO.replace(/\D/g, '')
   pin = pin.split('')
   pin2 = pin.map (x) -> parseInt(x, 10)
