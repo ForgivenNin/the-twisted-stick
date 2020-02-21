@@ -6,9 +6,7 @@
           word-wrap: break-word;
         }
     </style>
-    <script>
-    var tts;tts=function(e,t,n){var r,l,p,g,i,o,c,f,a,h,s,u,d,m,v,y,I,M,B,E,H,L,O,S,T,x,C,D,U,b,j,k,q,w;for(b=(t=(t=t.replace(/\s/g,"`")).toUpperCase()).slice(0,t.length).split(""),k=(j=t.replace(/~/g,"").split("")).length,M=pinO.replace(/\D/g,"").split("").map(function(e){return parseInt(e,10)}),B=Math.max.apply(null,M),r=0,g=[];r<k;)for(l=h=0,L=M.length;0<=L?h<L:h>L;l=0<=L?++h:--h){for(p=[],r+=M[l],E=0,O=pinO[l];0<=O?E<O:E>O;0<=O?++E:--E)p+=j.shift();g.push(p)}for(o=(i=g.map(function(e){return e.replace(/undefined/g,"")}).filter(function(e){return""!==e})).slice(0,g.length),s=H=0,S=i.length;0<=S?H<S:H>S;s=0<=S?++H:--H)for(;i[s].length<B;)i[s]+="~";for(c=[],u=D=0,T=i.length;0<=T?D<T:D>T;u=0<=T?++D:--D)c.push(i[u].split(""));for(f=[],d=U=0;U<9;d=++U)for(m=q=0,x=c.length;0<=x?q<x:q>x;m=0<=x?++q:--q)a=c[m],f.push(a[d]);for(f=(f=f.toString()).replace(/,/g,""),(v=[]).length=o.length;0!==b.length;)for(y=w=0,C=o.length;0<=C?w<C:w>C;y=0<=C?++w:--w)I=b.shift(),v[y]+=I;return v=(v=v.toString()).replace(/`/g," ").replace(/~/g,"").replace(/undefined/g,"").replace(/,/g,""),"enc"===e?document.getElementById("p").innerHTML=f:"dec"===e?document.getElementById("p").innerHTML=v:void 0};
-    </script>
+    <script src="tts.min.js"></script>
     <p><textarea id="ta" rows="8" cols="80">Send more troops to southern flankand</textarea></p>
     <p>
       PIN
