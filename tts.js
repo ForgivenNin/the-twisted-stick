@@ -81,9 +81,9 @@ function tts (mode) {
   var n4 = n3.replace(/undefined/g, '')
   var n5 = n4.replace(/`/g, ' ')
 
-  if (mode === "enc") {
+  if (mode === 'enc') {
     document.getElementById('p').innerHTML = g2
-  } else if (mode === "dec") {
+  } else if (mode === 'dec') {
     document.getElementById('p').innerHTML = n5
   }
 }
